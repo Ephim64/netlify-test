@@ -1,0 +1,26 @@
+{
+  "name": "netlify-test",
+  "version": "1.0.0",
+  "description": "Messing around with serverless express",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/netlify-lambda serve src",
+    "build": "./node_modules/.bin/netlify-lambda build src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ephim64/netlify-test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ephim64/netlify-test/issues"
+  },
+  "homepage": "https://github.com/Ephim64/netlify-test#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "netlify-lambda": "^1.6.3",
+    "serverless-http": "^2.5.0"
+  }
+}
