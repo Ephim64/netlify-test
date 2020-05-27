@@ -1,4 +1,3 @@
-const url = require('url');
 const express = require('express');
 const serverless = require('serverless-http');
 
@@ -11,21 +10,12 @@ let query = null;
 let srcUrl = null;
 
 router.get('/', (req, res) => {
-  res.json({
-    hello: 'hi',
-    hostname: req.hostname,
-    host: req.host,
-    host2: req.get('host')
-  });
+  res.json({hello: 'hi'});
 });
 
 router.get('/start', (req, res) => {
   query = '?' + Object.keys(req.query).map(key => `${key}=${req.query[key]}`).join('&');
-  srcUrl = url.format({
-    protocol: req.protocol,
-    host: req.get('host'),
-    pathname: req.originalUrl
-  });
+  srcUrl = req.protocol + '://' + req.get(':authority') + req.originalUrl;
 
   res.redirect(`${rootPrefix}/end`);
 });
