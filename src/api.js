@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 
 router.get('/start', (req, res) => {
   query = '?' + Object.keys(req.query).map(key => `${key}=${req.query[key]}`).join('&');
-  srcUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+  srcUrl = req.protocol + '://' + req.hostname + req.originalUrl;
 
   res.redirect(`${rootPrefix}/end`);
 });
@@ -35,6 +35,7 @@ router.get('/end', (req, res) => {
     <body>
       <h1>Query?</h1>
       <div>Here: ${query}</div>
+      <div>Full url: ${srcUrl}</div>
     </body>
   </html>
   `;
