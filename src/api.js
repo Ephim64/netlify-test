@@ -31,7 +31,7 @@ router.get('/end', (req, res) => {
       <meta property="og:title" content="Title ${query}" />
       <meta property="og:url" content="${currentUrl}" />
       <meta property="og:description" content="You came with this query: ${query}" />
-      <link rel="canonical" href="${srcUrl} />
+      <link rel="canonical" href="${srcUrl}" />
       <title>Test site</title>
       <meta
     </head>
