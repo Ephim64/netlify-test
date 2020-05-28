@@ -22,14 +22,16 @@ router.get('/start', (req, res) => {
 });
 
 router.get('/end', (req, res) => {
+  const currentUrl = req.protocol + '://' + siteUrl + req.originalUrl;
   const htmlString = `
   <!DOCTYPE html>
   <html>
     <head>
+      <meta property="og:type" content="website" />
       <meta property="og:title" content="Title ${query}" />
-      <meta property="og:url" content="${srcUrl}" />
+      <meta property="og:url" content="${currentUrl}" />
       <meta property="og:description" content="You came with this query: ${query}" />
-      <meta property="og:title" content="Title" />
+      <link rel="canonical" href="${srcUrl} />
       <title>Test site</title>
       <meta
     </head>
